@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -9,6 +10,7 @@ import { AnomalyTrends } from "@/components/anomaly-trends"
 import { DashboardHeader } from "@/components/dashboard-header"
 import { DashboardShell } from "@/components/dashboard-shell"
 import { BarChart3, AlertTriangle, TrendingUp, DollarSign } from "lucide-react"
+import AuditMaps from "./maps"
 
 export default function DashboardPage() {
   return (
@@ -77,7 +79,7 @@ export default function DashboardPage() {
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="anomalies">Anomalies</TabsTrigger>
           <TabsTrigger value="severity">Severity Analysis</TabsTrigger>
-          <TabsTrigger value="reports">Audit Reports</TabsTrigger>
+          <TabsTrigger value="reports">Maps</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-4">
@@ -196,37 +198,9 @@ export default function DashboardPage() {
         </TabsContent>
 
         <TabsContent value="reports" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Audit Reports</CardTitle>
-              <CardDescription>Generated audit reports with detailed findings</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border rounded-lg">
-                  <div>
-                    <h3 className="font-medium">Monthly Sales Audit - April 2025</h3>
-                    <p className="text-sm text-muted-foreground">Generated on April 3, 2025</p>
-                  </div>
-                  <Button variant="outline">Download PDF</Button>
-                </div>
-                <div className="flex items-center justify-between p-4 border rounded-lg">
-                  <div>
-                    <h3 className="font-medium">Quarterly Compliance Report - Q1 2025</h3>
-                    <p className="text-sm text-muted-foreground">Generated on March 31, 2025</p>
-                  </div>
-                  <Button variant="outline">Download PDF</Button>
-                </div>
-                <div className="flex items-center justify-between p-4 border rounded-lg">
-                  <div>
-                    <h3 className="font-medium">High Severity Anomalies - March 2025</h3>
-                    <p className="text-sm text-muted-foreground">Generated on March 28, 2025</p>
-                  </div>
-                  <Button variant="outline">Download PDF</Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+            <Card>
+              <AuditMaps></AuditMaps>
+            </Card>
         </TabsContent>
       </Tabs>
     </DashboardShell>
